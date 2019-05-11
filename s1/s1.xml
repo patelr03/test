@@ -6,7 +6,7 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fc2dc597-a8fc-40cd-9a76-096da16f7370" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
 	</http:listener-config>
 	<flow name="s1Flow" doc:id="071ac42b-8b23-4ec5-b1b3-ee52709de497" >
 		<http:listener doc:name="Listener" doc:id="95db0621-092a-4365-b70e-714e0a38df01" config-ref="HTTP_Listener_config" path="/test" outputMimeType="application/xml" allowedMethods="GET, POST"/>
