@@ -1,0 +1,18 @@
+{
+	"customers": {
+		"cust": [
+			{
+				"cno": "101",
+				"cname": "smith"
+			},
+			{
+				"cno": "102",
+				"cname": "kate"
+			},
+			{
+				"cno": "103",
+				"cname": "john"
+			}
+		]
+	}
+}

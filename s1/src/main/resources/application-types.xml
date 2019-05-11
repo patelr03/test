@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="in" format="xml">
+      <types:example format="xml" element="customers" location="examples/out1.xml"/>
+    </types:type>
+    <types:type name="out" format="json">
+      <types:shape format="weave" example="examples/out.json"><![CDATA[%dw 2.0
+type out = {|
+  customers: {|
+    cust: Array<{|
+      cno: String, 
+      cname: String
+    |}>
+  |}
+|} {"MetadataFormat": "json",
+"example": "{\"customers\":{\"cust\":[{\"cno\":\"101\",\"cname\":\"smith\"},{\"cno\":\"102\",\"cname\":\"kate\"},{\"cno\":\"103\",\"cname\":\"john\"}]}}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#2d0495b9-9690-4ba1-b3d3-60d6e862ba01">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="in"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="out"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
